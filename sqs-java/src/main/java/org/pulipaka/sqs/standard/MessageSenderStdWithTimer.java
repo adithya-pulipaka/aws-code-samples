@@ -19,7 +19,7 @@ public class MessageSenderStdWithTimer {
 		
 		final SendMessageRequest request = new SendMessageRequest()
 					.withQueueUrl(System.getProperty("SQS_QUEUE_URL"))
-					.withMessageBody("Hello Amazon SQS from StandardSQSMessageSenderWithTimer!")
+					.withMessageBody("Hello Amazon SQS from MessageSenderStdWithTimer!")
 					.withDelaySeconds(60);
 		
 		SendMessageResult result = amazonSQS.sendMessage(request);

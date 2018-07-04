@@ -23,22 +23,22 @@ public class MessageSenderStdWithAttributes {
 		final AmazonSQS amazonSQS = AmazonSQSClientBuilder.defaultClient();
 		
 		final Map<String,MessageAttributeValue> messageAttributes = new HashMap<String, MessageAttributeValue>();
-		messageAttributes.put("Name",
+		messageAttributes.put("StringAttr",
 				new MessageAttributeValue()
 				.withDataType("String")
 				.withStringValue("Name Attribute from Sender"));
-		messageAttributes.put("Name", 
+		messageAttributes.put("NumberAttr", 
 				new MessageAttributeValue()
 				.withDataType("Number")
-				.withStringValue("1542.321 from Sender"));
-		messageAttributes.put("Name", 
+				.withStringValue("1542.321"));
+		messageAttributes.put("BinaryAttr", 
 				new MessageAttributeValue()
 				.withDataType("Binary")
 				.withBinaryValue(ByteBuffer.wrap("Hello from sender".getBytes())));
 		
 		final SendMessageRequest request = new SendMessageRequest()
 					.withQueueUrl(System.getProperty("SQS_QUEUE_URL"))
-					.withMessageBody("Hello Amazon SQS from StandardSQSMessageSenderWithAttributes!")
+					.withMessageBody("Hello Amazon SQS from MessageSenderStdWithAttributes!")
 					.withMessageAttributes(messageAttributes);
 		
 		SendMessageResult result = amazonSQS.sendMessage(request);

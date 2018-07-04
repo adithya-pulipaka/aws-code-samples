@@ -20,7 +20,7 @@ public class MessageSenderStdMetaData {
 		
 		final SendMessageRequest request = new SendMessageRequest()
 					.withQueueUrl(System.getProperty("SQS_QUEUE_URL"))
-					.withMessageBody("Hello Amazon SQS from StandardSQSMessageSenderMetaData!");
+					.withMessageBody("Hello Amazon SQS from MessageSenderStdMetaData!");
 		
 		SendMessageResult result = amazonSQS.sendMessage(request);
 		System.out.println("Http Status code for the response: " + result.getSdkHttpMetadata().getHttpStatusCode());

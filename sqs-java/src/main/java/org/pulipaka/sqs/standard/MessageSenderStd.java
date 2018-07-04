@@ -19,7 +19,7 @@ public class MessageSenderStd {
 		
 		final SendMessageRequest request = new SendMessageRequest()
 					.withQueueUrl(System.getProperty("SQS_QUEUE_URL"))
-					.withMessageBody("Hello Amazon SQS from StandardSQSMessageSender!");
+					.withMessageBody("Hello Amazon SQS from MessageSenderStd!");
 		
 		SendMessageResult result = amazonSQS.sendMessage(request);
 		System.out.println("Message ID: " + result.getMessageId());
